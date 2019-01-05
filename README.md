@@ -43,3 +43,16 @@ Git冲突处理
 多人在同一时间操作同一个文件的时候有冲突
 如果多个人要更改同一文件，最好的方式是分时间处理，比如某一个人先提交，然后另外一个人pull下来再改
 万一真的出现了冲突，我们先要把自己的代码备份，回退到某一个没有冲突的版本，再把代码拷贝上去，最后在由一个人去提交
+
+
+## 生成自己的github密钥方法
+1.在本地计算机上C盘/用户/自己的用户下/新建文件件/.ssh
+2.在桌面打开git here的黑窗输入命令用来生成电脑跟github相连接的key
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"  
+按回车2下 会成功生成key 在你新建的.ssh文件夹中会有两个key 一个公钥一个私钥 
+3.在.ssh文件夹复制那个.pub结尾的公钥,用记事本打开复制到我的github上 
+打开登录自己账号的github 找到设置settings/到左边边栏的keys  (Deploy keys) 点开/点击add deploy key /title随便写个名字例如key/  下一步的key里面复制那个公钥进来/勾选那个allow write access/add key
+
+4.在桌面打开git here的黑窗输入命令用来测试有没有成功生成key: 
+ssh -T git@github.com
+会出现很长的提示 输入yes就会进入 欢迎你账号名 代表连接成功
